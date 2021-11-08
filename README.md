@@ -1,6 +1,11 @@
 # MonsteriBot-Game-Colour-Analyzer
 A program that pulls the top 100 games of each specified genre from IGDB, gets their images and analyzes their average colours.
 
+# Setup:
+
+### You will need to first install some required packages.
+`pip install colorthief matplotlib PIL seaborn`
+
 # To use:
 
 ### In the commandline:
