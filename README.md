@@ -4,7 +4,7 @@ A program that pulls the top 100 games of each specified genre from IGDB, gets t
 # To use:
 
 ### In the commandline:
-`python getimages.py <your IGDB client ID> <your IGDB client secret> <the number of images per genre you want (less is faster but less accurate results>`
+`python getimages.py <IGDB client ID> <IGDB client secret> <images per genre to analyze>`
 ### then run
 `python analyzeimages.py`
 
