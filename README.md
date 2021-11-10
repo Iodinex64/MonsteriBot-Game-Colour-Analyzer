@@ -4,7 +4,7 @@ A program that pulls the top 100 games of each specified genre from IGDB, gets t
 # Setup:
 
 ### You will need to first install some required packages.
-`pip install colorthief matplotlib PIL seaborn`
+`pip install requests colorthief matplotlib PIL seaborn`
 
 # To use:
 
