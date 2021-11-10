@@ -23,6 +23,7 @@ response = requests.post(
 ACCESS_TOKEN = response.json()["access_token"]
 print("Access token: " + ACCESS_TOKEN)
 
+
 def download_image(image_id, size: str = "thumb"):
     '''
     Image sizes:
@@ -60,8 +61,6 @@ def store_image(image, genre, filename):
 for genre in genre_ids:
     # Post for top 100 games in the specified genre
     headers = {"Client-ID": CLIENT_ID, "Authorization": "Bearer " + ACCESS_TOKEN}
-    # data = f"fields artworks.image_id; sort rating desc; where genres = {genre}; where artworks.image_id != null; limit {imgAmount};"
-    # data = f"fields *; where id = 1942;"
     data = f"fields artworks.url, artworks.image_id, artworks.height, artworks.width; sort rating desc; where genres = {genre} & artworks.image_id != null; limit {imgAmount};"
     r = requests.post('https://api.igdb.com/v4/games/', data=data, headers=headers)
     response = r.json()
@@ -71,5 +70,3 @@ for genre in genre_ids:
                 img = download_image(artwork['image_id'])
                 store_image(img, genre, artwork['image_id'] + '.jpg')
     print(response)
-
-

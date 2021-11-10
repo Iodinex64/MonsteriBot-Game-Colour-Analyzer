@@ -72,7 +72,7 @@ for genre in genre_ids:
     plt.title("Most dominant colours in the " + getNameFromGenreID(genre) + " genre.")
     plt.show()
     # extra condensation
-    #plot all colours in 2D
+    # plot all colours in 2D
     sns.palplot(colours_list, size=1)
     plt.show()
     # make new image of all the average cols
