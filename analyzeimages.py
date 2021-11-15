@@ -68,13 +68,22 @@ for genre in genre_ids:
         c = (x / 255, y / 255, z / 255)
         clist.append(c)
 
+        #has to be "static" since this is a flask app
+    if not os.path.exists("static"):
+        os.makedirs("static")
+
     ax.scatter(xlist, ylist, zlist, c=clist, s=100, edgecolors='none')
     plt.title("Most dominant colours in the " + getNameFromGenreID(genre) + " genre.")
-    plt.show()
+    plt.savefig("static/" + getNameFromGenreID(genre) + " scatter.png")
+    #plt.show()
+    plt.close()
     # extra condensation
     # plot all colours in 2D
     sns.palplot(colours_list, size=1)
-    plt.show()
+    plt.title("Most dominant colours in the " + getNameFromGenreID(genre) + " genre.")
+    plt.savefig("static/" + getNameFromGenreID(genre) + " bar.png")
+    #plt.show()
+    plt.close()
     # make new image of all the average cols
     im = Image.new('RGB', (len(colours_list), 1))
     im.putdata(colours_list)
@@ -86,9 +95,13 @@ for genre in genre_ids:
     im2.putdata(pal)
     im2.save("temp2.png")
     conv = ImageEnhance.Color(im2)
-    im3 = conv.enhance(10)
+    im3 = conv.enhance(2)
     palette = im3.getdata()
     sns.palplot(palette)
-    plt.show()
-    os.remove("temp.png")
-    os.remove("temp2.png")
+    plt.title("Average colours in the " + getNameFromGenreID(genre) + " genre.")
+    plt.savefig("static/" + getNameFromGenreID(genre) + " palette.png", bbox_inches="tight")
+    #plt.show()
+    plt.close()
+
+os.remove("temp.png")
+os.remove("temp2.png")

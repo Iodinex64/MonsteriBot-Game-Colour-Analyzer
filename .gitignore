@@ -1,6 +1,6 @@
 #Program specific
 images/
-plots/
+static/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

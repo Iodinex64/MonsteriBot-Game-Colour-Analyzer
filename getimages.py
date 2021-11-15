@@ -24,7 +24,7 @@ ACCESS_TOKEN = response.json()["access_token"]
 print("Access token: " + ACCESS_TOKEN)
 
 
-def download_image(image_id, size: str = "thumb"):
+def download_image(image_id, size: str = "logo_med"):
     '''
     Image sizes:
 
